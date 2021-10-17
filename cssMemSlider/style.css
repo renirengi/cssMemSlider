@@ -27,7 +27,7 @@ p{
   width: 50%;
   float: left;
   font-size: 1.5rem;
- 
+
 }
 
 .wrapper{
@@ -53,7 +53,8 @@ p{
 .slides{
  width: 500%;
  height: 100%;
- display: flex; 
+ display: flex;
+ margin-left: 5.1rem;
 }
 
 .slides .slide{
@@ -61,14 +62,14 @@ p{
   display: flex;
   flex-direction: column;
   transition: .7s;
-  
+
 }
 
 .slides .slide img{
   max-width: 50rem;
   height: auto;
   object-fit: cover;
-  
+
 }
 
 
@@ -78,7 +79,7 @@ input{
 
 .slider-nav{
   position: relative;
-  top: -11.7rem;
+  top: -13rem;
   left: 15rem;
   width: 100%;
   display: flex;
@@ -88,32 +89,82 @@ input{
 
 
 .slider-nav .slider-nav-item{
-  width: 1rem;
-  height: 1rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.slider-nav .slider-nav-item::before {
+  content: ' ';
+  display: block;
   background-color: white;
   border: 0.1rem solid white;
   border-radius: 50%;
   margin: 1rem;
-  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
   transition: all .5s ease;
 }
 
-.slider-nav .slider-nav-item:hover{
-  background-color: cyan;
+.slider-nav .slider-nav-item:hover:before,
+.slider-nav .slider-nav-item:hover:focus{
+  background-color: goldenrod;
 }
 
-#s1:checked ~ .s1{
+#s1:checked ~ .slides > .s1{
   margin-left: 0;
 }
 
-#s2:checked ~ .s1{
+#s2:checked ~ .slides > .s1{
   margin-left: -20%;
 }
 
-#s3:checked ~ .s1{
+#s3:checked ~ .slides > .s1{
   margin-left: -40%;
 }
 
-#s4:checked ~ .s1{
+#s4:checked ~ .slides > .s1{
   margin-left: -60%;
+}
+
+#s1:checked ~ .slider-nav > .slider-nav-item[for="s1"]::before,
+#s2:checked ~ .slider-nav > .slider-nav-item[for="s2"]::before,
+#s3:checked ~ .slider-nav > .slider-nav-item[for="s3"]::before,
+#s4:checked ~ .slider-nav > .slider-nav-item[for="s4"]::before {
+  background-color: cyan;
+}
+
+@media (max-width : 600px){
+  h1{
+    padding: 1rem 0 1rem 0;
+    font-size: 1rem;
+  }
+
+  p{
+    padding: 3rem 0 0rem 0rem;
+    font-size: 0.8rem;
+    width: 10rem;
+  }
+
+  .wrapper{
+    position: relative;
+    margin: 2rem 1.25rem 2rem 1.25rem;
+    width: 20rem;
+  }
+
+  .slider{
+    max-width: 20rem;
+    margin-left: 0rem;
+  }
+
+  .slides .slide img{
+    max-width: 10rem;
+   
+  }
+
+  .slider-nav{
+   left: 0rem;
+  }
+
+
 }
