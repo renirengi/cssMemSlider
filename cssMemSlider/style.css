@@ -1,0 +1,170 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  background-color: black;
+  display:flex;
+  justify-content: center;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: cyan;
+
+}
+
+p{
+  color: white;
+  padding: 1rem 0 1rem 0;
+  width: 50%;
+  float: left;
+  font-size: 1.5rem;
+
+}
+
+.wrapper{
+  position: relative;
+  margin: 3rem 2rem 3rem 2rem;
+  width: 80rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid white;
+
+}
+
+.slider{
+  position: relative;
+  overflow: hidden;
+  max-width: 60rem;
+  height: auto;
+}
+
+.slides{
+ width: 500%;
+ height: 100%;
+ display: flex;
+ margin-left: 5.1rem;
+}
+
+.slides .slide{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  transition: .7s;
+
+}
+
+.slides .slide img{
+  max-width: 50rem;
+  height: auto;
+  object-fit: cover;
+
+}
+
+
+input{
+ visibility: hidden;
+}
+
+.slider-nav{
+  position: relative;
+  top: -13rem;
+  left: 15rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.slider-nav .slider-nav-item{
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.slider-nav .slider-nav-item::before {
+  content: ' ';
+  display: block;
+  background-color: white;
+  border: 0.1rem solid white;
+  border-radius: 50%;
+  margin: 1rem;
+  width: 1rem;
+  height: 1rem;
+  transition: all .5s ease;
+}
+
+.slider-nav .slider-nav-item:hover:before,
+.slider-nav .slider-nav-item:hover:focus{
+  background-color: goldenrod;
+}
+
+#s1:checked ~ .slides > .s1{
+  margin-left: 0;
+}
+
+#s2:checked ~ .slides > .s1{
+  margin-left: -20%;
+}
+
+#s3:checked ~ .slides > .s1{
+  margin-left: -40%;
+}
+
+#s4:checked ~ .slides > .s1{
+  margin-left: -60%;
+}
+
+#s1:checked ~ .slider-nav > .slider-nav-item[for="s1"]::before,
+#s2:checked ~ .slider-nav > .slider-nav-item[for="s2"]::before,
+#s3:checked ~ .slider-nav > .slider-nav-item[for="s3"]::before,
+#s4:checked ~ .slider-nav > .slider-nav-item[for="s4"]::before {
+  background-color: cyan;
+}
+
+@media (max-width : 600px){
+  h1{
+    padding: 1rem 0 1rem 0;
+    font-size: 1rem;
+  }
+
+  p{
+    padding: 3rem 0 0rem 0rem;
+    font-size: 0.8rem;
+    width: 10rem;
+  }
+
+  .wrapper{
+    position: relative;
+    margin: 2rem 1.25rem 2rem 1.25rem;
+    width: 20rem;
+  }
+
+  .slider{
+    max-width: 20rem;
+    margin-left: 0rem;
+  }
+
+  .slides .slide img{
+    max-width: 10rem;
+   
+  }
+
+  .slider-nav{
+   left: 0rem;
+  }
+
+
+}
